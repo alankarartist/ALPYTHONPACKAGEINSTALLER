@@ -14,7 +14,7 @@ pip install PyAudio
 
 ## Usage
 
-![](/Capture.JPG)
+![](/CapturePythonPackage.JPG)
 
 1. Provide the input as given in above image.
 2. Then, click on INSTALL button.
