@@ -6,7 +6,7 @@ import pyttsx3
 class AlPythonPackageInstaller():
     
     def __init__(self):
-        root = Tk(className = " AlPythonPackageInstaller ")
+        root = Tk(className = " ALPYTHONPACKAGEINSTALLER ")
         root.geometry("400x200+1500+815")
         root.config(bg="#0d4b98")
         color = '#0d4b98'
