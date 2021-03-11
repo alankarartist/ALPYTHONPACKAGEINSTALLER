@@ -2,12 +2,16 @@ import subprocess
 from tkinter import*
 from tkinter import font
 import pyttsx3
+import os
+
+cwd = os.path.dirname(os.path.realpath(__file__))
 
 class AlPythonPackageInstaller():
     
     def __init__(self):
         root = Tk(className = " ALPYTHONPACKAGEINSTALLER ")
         root.geometry("400x200+1500+815")
+        root.iconbitmap(os.path.join(cwd+'\\UI\\icons', 'alpythonpackageinstaller.ico'))
         root.config(bg="#0d4b98")
         color = '#0d4b98'
 
