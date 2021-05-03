@@ -11,6 +11,7 @@ class AlPythonPackageInstaller():
     def __init__(self):
         root = Tk(className = " ALPYTHONPACKAGEINSTALLER ")
         root.geometry("400x200+1500+815")
+        root.resizable(0,0)
         root.iconbitmap(os.path.join(cwd+'\\UI\\icons', 'alpythonpackageinstaller.ico'))
         root.config(bg="#0d4b98")
         color = '#0d4b98'
