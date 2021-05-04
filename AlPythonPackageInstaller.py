@@ -27,7 +27,6 @@ class AlPythonPackageInstaller():
             text.delete(1.0, END)
             package = pythonPackage.get()
             check = subprocess.getoutput('pip install ' + package)
-            print(check)
             alreadyInstalled = 'Requirement already satisfied: ' + package
             nowInstalled = 'Successfully installed ' + package
             errorInstalling = 'ERROR: Could not find a version that satisfies the requirement ' + package
