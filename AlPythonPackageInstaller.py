@@ -27,10 +27,13 @@ class AlPythonPackageInstaller():
             text.delete(1.0, END)
             package = pythonPackage.get()
             check = subprocess.getoutput('pip install ' + package)
+            if '==' in package:
+                package = package.split('==')[0]
             alreadyInstalled = 'Requirement already satisfied: ' + package
             nowInstalled = 'Successfully installed ' + package
             errorInstalling = 'ERROR: Could not find a version that satisfies the requirement ' + package
             someError = 'ERROR: '
+
             if nowInstalled in check.split('\n')[-1]:
                 text.insert(1.0, check.split('\n')[-1])
                 speak('Successfully installed ' + package)
