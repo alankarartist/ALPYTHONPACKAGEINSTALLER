@@ -37,7 +37,7 @@ class AlPythonPackageInstaller():
             if nowInstalled in check.split('\n')[-1]:
                 text.insert(1.0, check.split('\n')[-1])
                 speak('Successfully installed ' + package)
-            elif nowInstalled in check.split('\n')[-3]:
+            elif len(check.split('\n')) >= 3 and nowInstalled in check.split('\n')[-3]:
                 text.insert(1.0, check.split('\n')[-3])
                 speak('Successfully installed ' + package)
             elif alreadyInstalled in check.split('\n')[0]:
