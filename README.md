@@ -19,3 +19,9 @@ pip install Pillow
 
 1. Provide the input as given in above image.
 2. Then, click on INSTALL button.
+
+## Contributor
+
+<a href="https://github.com/alankarartist/ALPYTHONPACKAGEINSTALLER/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=alankarartist/ALPYTHONPACKAGEINSTALLER" />
+</a>
