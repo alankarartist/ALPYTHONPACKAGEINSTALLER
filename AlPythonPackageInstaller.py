@@ -4,8 +4,10 @@ from tkinter import font, Button, X, Entry, Text, BOTH
 import pyttsx3
 from PIL import ImageTk, Image
 import os
+import platform
 
 cwd = os.path.dirname(os.path.realpath(__file__))
+systemName = platform.system()
 
 
 class AlPythonPackageInstaller():
@@ -14,8 +16,11 @@ class AlPythonPackageInstaller():
         root = Tk(className=" ALPYTHONPACKAGEINSTALLER ")
         root.geometry("400x200+1500+815")
         root.resizable(0, 0)
-        root.iconbitmap(os.path.join(cwd+'\\UI\\icons',
-                                     'alpythonpackageinstaller.ico'))
+        iconPath = os.path.join(cwd+'\\UI\\icons',
+                                'alpythonpackageinstaller.ico')
+        if systemName == 'Darwin':
+            iconPath = iconPath.replace('\\','/')
+        root.iconbitmap(iconPath)
         root.config(bg="#0d4b98")
         root.overrideredirect(1)
         color = '#0d4b98'
@@ -39,7 +44,10 @@ class AlPythonPackageInstaller():
             root.iconify()
 
         def speak(audio):
-            engine = pyttsx3.init('sapi5')
+            if systemName == 'Darwin':
+                engine = pyttsx3.init()
+            elif systemName == 'Windows':
+                engine = pyttsx3.init('sapi5')
             voices = engine.getProperty('voices')
             engine.setProperty('voice', voices[0].id)
             engine.say(audio)
@@ -76,8 +84,7 @@ class AlPythonPackageInstaller():
                                      weight='bold')
 
         titleBar = Frame(root, bg='#141414', relief=SUNKEN, bd=0)
-        icon = Image.open(os.path.join(cwd+'\\UI\\icons',
-                          'alpythonpackageinstaller.ico'))
+        icon = Image.open(iconPath)
         icon = icon.resize((30, 30), Image.ANTIALIAS)
         icon = ImageTk.PhotoImage(icon)
         iconLabel = Label(titleBar, image=icon)
@@ -126,7 +133,8 @@ class AlPythonPackageInstaller():
         titleBar.bind("<Button-3>", showScreen)
         titleBar.bind("<Map>", screenAppear)
 
-        liftWindow()
+        if systemName == 'Windows':
+            liftWindow()
         root.mainloop()
 
 
