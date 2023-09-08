@@ -4,10 +4,8 @@ from tkinter import font, Button, X, Entry, Text, BOTH
 import pyttsx3
 from PIL import ImageTk, Image
 import os
-import platform
 
 cwd = os.path.dirname(os.path.realpath(__file__))
-systemName = platform.system()
 
 
 class AlPythonPackageInstaller():
@@ -18,8 +16,6 @@ class AlPythonPackageInstaller():
         root.resizable(0, 0)
         iconPath = os.path.join(cwd+'\\UI\\icons',
                                 'alpythonpackageinstaller.ico')
-        if systemName == 'Darwin':
-            iconPath = iconPath.replace('\\','/')
         root.iconbitmap(iconPath)
         root.config(bg="#0d4b98")
         root.overrideredirect(1)
@@ -44,10 +40,7 @@ class AlPythonPackageInstaller():
             root.iconify()
 
         def speak(audio):
-            if systemName == 'Darwin':
-                engine = pyttsx3.init()
-            elif systemName == 'Windows':
-                engine = pyttsx3.init('sapi5')
+            engine = pyttsx3.init('sapi5')
             voices = engine.getProperty('voices')
             engine.setProperty('voice', voices[0].id)
             engine.say(audio)
@@ -133,8 +126,7 @@ class AlPythonPackageInstaller():
         titleBar.bind("<Button-3>", showScreen)
         titleBar.bind("<Map>", screenAppear)
 
-        if systemName == 'Windows':
-            liftWindow()
+        liftWindow()
         root.mainloop()
 
 
